@@ -7,6 +7,8 @@ gem 'rails', '4.1.4'
 # Fix the conflict with the system 'rake':
 gem 'rake', '~> 0.9.6'
 
+gem 'pg'
+
 # Support for databases and environment.
 # Use 'sqlite3' for testing and development and mysql and postgresql
 # for production.
@@ -16,20 +18,36 @@ gem 'rake', '~> 0.9.6'
 #
 # $ rhc env set BUNDLE_WITHOUT="development test postgresql"
 #
+
+gem 'simple_form'
+gem 'foundation-rails'
+gem 'faker'
+gem 'will_paginate'
+gem 'will_paginate-foundation'
+
+
 group :development, :test do
-  gem 'sqlite3'
-  gem 'minitest'
+  gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess'
+
   gem 'thor'
 end
 
 # Add support for the MySQL
-group :production, :mysql do
-  gem 'mysql2'
+
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  
+  gem 'libnotify', '0.8.0'
+  gem 'factory_girl_rails', '4.2.1'
 end
 
-group :production, :postgresql do
-  gem 'pg'
-end
+
 
 ### / OpenShift changes
 
